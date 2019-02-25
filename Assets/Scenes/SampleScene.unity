@@ -212,6 +212,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 5170891040377152108, guid: 0a1f746c9edb8c4468eb640c36d0aee4,
     type: 3}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!4 &71437267
 Transform:
   m_ObjectHideFlags: 0
