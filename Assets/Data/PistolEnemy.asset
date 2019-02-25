@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PistolEnemy
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 4c906db93ad88eb4bb185b8a8af89f62, type: 2}
-  shootFrequency: 0.1
-  shootChance: 0.2
+  shootFrequency: 0.9
+  shootChance: 0.7
   color: {r: 0.033018887, g: 0.057947163, b: 1, a: 1}
   hp: 80

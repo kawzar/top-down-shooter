@@ -17,10 +17,13 @@ public class EnemyManager : MonoBehaviour
     Enemy enemyPrefab;
 
     [SerializeField]
-    float circleRadius = 5;
+    float circleRadius = 7;
 
     [SerializeField]
     int enemyQuantity = 7;
+
+    [SerializeField]
+    private GameObject enemySpawnOrigin;
 
     private void Awake()
     {
@@ -46,7 +49,7 @@ public class EnemyManager : MonoBehaviour
 
             while (!instantiated)
             {
-                position = Random.insideUnitCircle * this.circleRadius;
+                position = (Vector2)enemySpawnOrigin.transform.position + Random.insideUnitCircle * this.circleRadius;
                 var overlap = Physics2D.OverlapCircle(position, 1f, this.layerMask);
                 instantiated = overlap == null;
             }

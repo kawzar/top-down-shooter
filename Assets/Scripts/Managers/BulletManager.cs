@@ -11,10 +11,10 @@ public class BulletManager : MonoBehaviour
     private Bullet bulletPrefab;
 
     [SerializeField]
-    private LayerMask playerLayer;
+    private int playerLayer;
 
     [SerializeField]
-    private LayerMask enemyLayer;
+    private int enemyLayer;
 
     private void Awake()
     {
@@ -30,14 +30,14 @@ public class BulletManager : MonoBehaviour
         bulletPool = new Pool<Bullet>(bulletPrefab);
     }
 
-    public void PlayerShoot(WeaponData weaponData, Vector3 direction)
+    public void PlayerShoot(WeaponData weaponData, Vector3 direction, Vector2 origin)
     {
-        Shoot(direction, weaponData, playerLayer);
+        Shoot(direction, origin, weaponData, playerLayer);
     }
 
-    public void EnemyShoot(WeaponData weaponData, Vector3 direction)
+    public void EnemyShoot(WeaponData weaponData, Vector3 direction, Vector2 origin)
     {
-        Shoot(direction, weaponData, enemyLayer);
+        Shoot(direction, origin, weaponData, enemyLayer);
     }
 
     public float BulletDamage(Collider2D collision)
@@ -49,11 +49,10 @@ public class BulletManager : MonoBehaviour
         return dmg;
     }
 
-    private void Shoot(Vector3 direction, WeaponData weaponData, LayerMask layerMask)
+    private void Shoot(Vector3 direction, Vector2 origin, WeaponData weaponData, int layer)
     {
         var bullet = bulletPool.Get();
-        bullet.gameObject.layer = layerMask;
-        bullet.Configure(weaponData, direction.normalized, transform.position);
-
+        bullet.Configure(weaponData, direction.normalized, origin);
+        bullet.gameObject.layer = layer;
     }
 }

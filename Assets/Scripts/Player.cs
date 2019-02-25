@@ -52,7 +52,7 @@ public class Player : MonoBehaviour
         if (this.Weapon.WeaponData != null && Time.time - lastTimeShot >= Weapon.WeaponData.FireRate)
         {
             var direction = _camera.ScreenToWorldPoint(InputManager.Instance.MousePosition) - transform.position;
-            BulletManager.Instance.PlayerShoot(Weapon.WeaponData, direction);
+            BulletManager.Instance.PlayerShoot(Weapon.WeaponData, direction, transform.position);
             lastTimeShot = Time.time;
         }
     }
@@ -68,6 +68,11 @@ public class Player : MonoBehaviour
         if (collision.CompareTag(Constants.Tags.Projectile))
         {
             this.hp -= BulletManager.Instance.BulletDamage(collision);
+
+            if (hp <= 0)
+            {
+                Debug.Log("Player died!");
+            }
         }
     }
 

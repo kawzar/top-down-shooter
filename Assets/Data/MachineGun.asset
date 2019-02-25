@@ -15,5 +15,5 @@ MonoBehaviour:
   _name: Machine Gun
   _color: {r: 1, g: 0.61689365, b: 0, a: 1}
   _fireRate: 0.16666667
-  _damage: 30
+  _damage: 10
   _bulletVelocity: 15

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MachineEnemy
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 9d034969fa8bd36439c2a5fcc930a6b3, type: 2}
-  shootFrequency: 0.25
-  shootChance: 0.15
+  shootFrequency: 0.5
+  shootChance: 0.6
   color: {r: 0.9433962, g: 0.75362545, b: 0.27144888, a: 1}
   hp: 100

@@ -44,8 +44,22 @@ public class Enemy : MonoBehaviour
     private void Shoot()
     {
         var direction = PositionManager.Instance.PlayerPosition() - transform.position;
-        BulletManager.Instance.EnemyShoot(weapon.WeaponData, direction);
+        BulletManager.Instance.EnemyShoot(enemyData.WeaponData, direction, transform.position);
         lastTimeShot = Time.time;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag(Constants.Tags.Projectile))
+        {
+            Debug.Log("Enemy hit!");
+            this.hp -= BulletManager.Instance.BulletDamage(collision);
+
+            if (hp <= 0)
+            {
+                Debug.Log("Enemy died!");
+            }
+        }
     }
 
     private bool CanShoot()

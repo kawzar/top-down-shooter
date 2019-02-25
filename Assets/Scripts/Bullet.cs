@@ -11,13 +11,7 @@ public class Bullet : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private bool isConfigured;
 
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
-
-    // Update is called once per frame
     void Update()
     {
         this.Move();
@@ -29,8 +23,6 @@ public class Bullet : MonoBehaviour
         this.direction = direction;
         transform.position = origin;
         gameObject.SetActive(true);
-        Debug.Log($"Bullet Direction {this.direction}");
-        Debug.Log($"Parameter direction {direction}");
         StartCoroutine(DisableAfterSeconds(SettingsManager.Instance.Settings.DisableBulletAfterSeconds));
         this.spriteRenderer = GetComponent<SpriteRenderer>();
         this.spriteRenderer.color = this._weaponData.Color;
